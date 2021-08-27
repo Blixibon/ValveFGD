@@ -7,7 +7,7 @@ setup(
     description='A library to parse .fgd files used in the source engine.',
     author='Maxime Dupuis',
     author_email='mdupuis@hotmail.ca',
-    url='https://maxdup.github.io/pySourceSDK/ValveFGD/',
+    url='https://github.com/pySourceSDK/ValveFGD',
     download_url='https://github.com/pySourceSDK/ValveFGD/archive/v1.0.2.tar.gz',
     keywords=['fgd', 'source', 'sourcesdk', 'hammer', 'valve'],
     install_requires=['pyparsing', 'future'],

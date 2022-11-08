@@ -2,6 +2,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 from __future__ import division
 from __future__ import absolute_import
+from builtins import str
 from builtins import dict
 from builtins import open
 from builtins import int
@@ -62,6 +63,8 @@ pp_EntitySpawnflags = Suppress(CaselessLiteral('spawnflags') + '(' +
 # Property parsers
 pp_property_name = pp_name.setResultsName('name')
 pp_property_value_type = pp_name.setResultsName('value_type')
+pp_property_report = Literal('report').setParseAction(
+    bool).setResultsName('report')
 pp_property_readonly = Literal('readonly').setParseAction(
     bool).setResultsName('readonly')
 pp_property_display_name = Optional(pp_quoted.setResultsName('display_name'))
@@ -70,6 +73,7 @@ pp_description = Optional(pp_quoted.setResultsName('description'))
 
 
 pp_EntityProperty = pp_property_name + '(' + pp_property_value_type + ')' + \
+    Optional(pp_property_report) + \
     Optional(pp_property_readonly) + \
     Optional(':' + pp_property_display_name) + \
     Optional(':' + pp_property_default) + \

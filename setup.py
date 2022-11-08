@@ -2,13 +2,13 @@ from distutils.core import setup
 setup(
     name='valvefgd',
     packages=['valvefgd'],
-    version='1.0.2',
+    version='1.0.3',
     license='gpl-3.0',
     description='A library to parse .fgd files used in the source engine.',
     author='Maxime Dupuis',
     author_email='mdupuis@hotmail.ca',
     url='https://github.com/pySourceSDK/ValveFGD',
-    download_url='https://github.com/pySourceSDK/ValveFGD/archive/v1.0.2.tar.gz',
+    download_url='https://github.com/pySourceSDK/ValveFGD/archive/v1.0.3.tar.gz',
     keywords=['fgd', 'source', 'sourcesdk', 'hammer', 'valve'],
     install_requires=['pyparsing', 'future'],
     classifiers=[
@@ -22,5 +22,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 )

@@ -604,7 +604,7 @@ class FgdEntity(object):
 class FgdEntityProperty(object):
     """An entity property, as represented in a Fgd file."""
 
-    def __init__(self, name, value_type, report=False, readonly=False,
+    def __init__(self, name, value_type, readonly=False, report=False,
                  display_name=None, default_value=None, description=None,
                  choices=[]):
         """Creates an instance of FgdEntityProperty.
@@ -616,8 +616,11 @@ class FgdEntityProperty(object):
                        Ex:'integer', 'float', 'choices', etc...
         :type value_type: str
 
-        :param name: The property's readonly status.
-        :type name: bool, optional
+        :param readonly: The property's readonly status.
+        :type readonly: bool, optional
+
+        :param report: The property's report status.
+        :type report: bool, optional
 
         :param display_name: The property's display name.
         :type display_name: str, optional
@@ -635,8 +638,8 @@ class FgdEntityProperty(object):
 
         self._name = name
         self._value_type = value_type.lower()
-        self._report = report
         self._readonly = readonly
+        self._report = report
         self._display_name = display_name
         self._default_value = default_value
         self._description = description
@@ -667,8 +670,8 @@ class FgdEntityProperty(object):
             'name': self._name,
             'display_name': self._display_name,
             'description': self._description,
-            'report': self._report,
             'readonly': self._readonly,
+            'report': self._report,
             'type': self._value_type,
             'default_value': self._default_value,
         }
@@ -693,20 +696,20 @@ class FgdEntityProperty(object):
         return self._value_type
 
     @property
-    def report(self):
-        """The property's report status. (displays property value in Hammer's entity report)
-
-        :rtype: bool"""
-
-        return self._report
-
-    @property
     def readonly(self):
         """The property's readonly status. (disables editing property in Hammer)
 
         :rtype: bool"""
 
         return self._readonly
+
+    @property
+    def report(self):
+        """The property's report status. (displays property value in Hammer's entity report)
+
+        :rtype: bool"""
+
+        return self._report
 
     @property
     def display_name(self):
@@ -771,13 +774,13 @@ class FgdEntityProperty(object):
         # name
         fgd_str = self._name + '(' + self._value_type + ')'
 
-        # report
-        if self._report:
-            fgd_str += ' report'
-
         # readonly
         if self._readonly:
             fgd_str += ' readonly'
+
+        # report
+        if self._report:
+            fgd_str += ' report'
 
         # display name
         if self._display_name:

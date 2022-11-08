@@ -538,17 +538,17 @@ class FgdTestCase(unittest.TestCase):
     def test_property_properties(self):
         name = 'targetname'
         value_type = 'integer'
-        report = False
         readonly = True
+        report = False
         display_name = 'Target Name'
         default_value = '1'
         description = 'short desc1'
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
+        property = FgdEntityProperty(name, value_type, readonly, report, display_name,
                                      default_value, description)
         self.assertEqual(property.name, name)
         self.assertEqual(property.value_type, value_type)
-        self.assertEqual(property.report, report)
         self.assertEqual(property.readonly, readonly)
+        self.assertEqual(property.report, report)
         self.assertEqual(property.display_name, display_name)
         self.assertEqual(property.default_value, default_value)
         self.assertEqual(property.description, description)
@@ -557,21 +557,21 @@ class FgdTestCase(unittest.TestCase):
     def test_property_properties_with_choices(self):
         name = 'targetname'
         value_type = 'choices'
-        report = False
         readonly = True
+        report = False
         display_name = 'Target Name'
         default_value = '1'
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
+        property = FgdEntityProperty(name, value_type, readonly, report, display_name,
                                      default_value, description,
                                      [choice1, choice2, choice3])
         self.assertEqual(property.name, name)
         self.assertEqual(property.value_type, value_type)
-        self.assertEqual(property.report, report)
         self.assertEqual(property.readonly, readonly)
+        self.assertEqual(property.report, report)
         self.assertEqual(property.display_name, display_name)
         self.assertEqual(property.default_value, default_value)
         self.assertEqual(property.description, description)
@@ -580,15 +580,15 @@ class FgdTestCase(unittest.TestCase):
     def test_property_choice_by_name(self):
         name = 'targetname'
         value_type = 'integer'
-        report = False
         readonly = True
+        report = False
         display_name = 'Target Name'
         default_value = 1
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly,
+        property = FgdEntityProperty(name, value_type, readonly, report,
                                      display_name, default_value, description,
                                      [choice1, choice2, choice3])
         self.assertRaises(ChoiceNotFound, property.choice_by_value, 1)
@@ -598,15 +598,15 @@ class FgdTestCase(unittest.TestCase):
 
         name = 'targetname'
         value_type = 'choices'
-        report = False
         readonly = True
+        report = False
         display_name = 'Target Name'
         default_value = 1
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly,
+        property = FgdEntityProperty(name, value_type, readonly, report,
                                      display_name, default_value, description,
                                      [choice1, choice2, choice3])
         self.assertEqual(property.choice_by_value(1), choice1)
@@ -617,17 +617,17 @@ class FgdTestCase(unittest.TestCase):
     def test_property_schema(self):
         name = 'targetname'
         value_type = 'integer'
-        report = False
         readonly = True
+        report = False
         display_name = 'Target Name'
         default_value = '1'
         description = 'short desc1'
-        property = FgdEntityProperty(name, value_type, report, readonly,
+        property = FgdEntityProperty(name, value_type, readonly, report,
                                      display_name, default_value, description)
         self.assertEqual(property.schema['name'], name)
         self.assertEqual(property.schema['type'], value_type)
-        self.assertEqual(property.schema['report'], report)
         self.assertEqual(property.schema['readonly'], readonly)
+        self.assertEqual(property.schema['report'], report)
         self.assertEqual(property.schema['display_name'], display_name)
         self.assertEqual(property.schema['default_value'], default_value)
         self.assertEqual(property.schema['description'], description)
@@ -636,21 +636,21 @@ class FgdTestCase(unittest.TestCase):
     def test_property_schema_with_choices(self):
         name = 'targetname'
         value_type = 'integer'
-        report = False
         readonly = True
+        report = False
         display_name = 'Target Name'
         default_value = '1'
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
-                                     default_value, description,
+        property = FgdEntityProperty(name, value_type, readonly, report,
+                                     display_name, default_value, description,
                                      [choice1, choice2, choice3])
         self.assertEqual(property.schema['name'], name)
         self.assertEqual(property.schema['type'], value_type)
-        self.assertEqual(property.schema['report'], report)
         self.assertEqual(property.schema['readonly'], readonly)
+        self.assertEqual(property.schema['report'], report)
         self.assertEqual(property.schema['display_name'], display_name)
         self.assertEqual(property.schema['default_value'], default_value)
         self.assertEqual(property.schema['description'], description)
@@ -658,21 +658,21 @@ class FgdTestCase(unittest.TestCase):
 
         name = 'targetname'
         value_type = 'choices'
-        report = False
         readonly = True
+        report = False
         display_name = 'Target Name'
         default_value = '1'
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
-                                     default_value, description,
+        property = FgdEntityProperty(name, value_type, readonly, report,
+                                     display_name, default_value, description,
                                      [choice1, choice2, choice3])
         self.assertEqual(property.schema['name'], name)
         self.assertEqual(property.schema['type'], value_type)
-        self.assertEqual(property.schema['report'], report)
         self.assertEqual(property.schema['readonly'], readonly)
+        self.assertEqual(property.schema['report'], report)
         self.assertEqual(property.schema['display_name'], display_name)
         self.assertEqual(property.schema['default_value'], default_value)
         self.assertEqual(property.schema['description'], description)
@@ -685,13 +685,13 @@ class FgdTestCase(unittest.TestCase):
     def test_property_repr(self):
         name = 'targetname'
         value_type = 'integer'
-        report = True
         readonly = True
+        report = True
         display_name = 'Target Name'
         default_value = '1'
         description = 'short desc1'
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
-                                     default_value, description)
+        property = FgdEntityProperty(name, value_type, readonly, report,
+                                     display_name, default_value, description)
         expected = "<FgdEntityProperty {'name': 'targetname', " + \
                    "'value_type': 'integer', " + \
                    "'description': 'short desc1', [...]}>"
@@ -700,33 +700,33 @@ class FgdTestCase(unittest.TestCase):
     def test_property_fgd_str(self):
         name = 'targetname'
         value_type = 'integer'
-        report = True
         readonly = True
+        report = True
         display_name = 'Target Name'
         default_value = '1'
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
+        property = FgdEntityProperty(name, value_type, readonly, report,  display_name,
                                      default_value, description,
                                      [choice1, choice2, choice3])
-        expected = 'targetname(integer) report readonly : ' + \
+        expected = 'targetname(integer) readonly report : ' + \
                    '"Target Name" : "1" : "short desc1"'
         self.assertEqual(property.fgd_str(), expected)
 
         name = 'targetname'
         value_type = 'integer'
-        report = False
         readonly = False
+        report = False
         display_name = None
         default_value = None
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
-                                     default_value, description,
+        property = FgdEntityProperty(name, value_type, readonly, report,
+                                     display_name, default_value, description,
                                      [choice1, choice2, choice3])
         expected = 'targetname(integer) : : : "short desc1"'
         self.assertEqual(property.fgd_str(), expected)
@@ -734,16 +734,16 @@ class FgdTestCase(unittest.TestCase):
     def test_property_with_choices_fgd_str(self):
         name = 'targetname'
         value_type = 'choices'
-        report = False
         readonly = False
+        report = False
         display_name = 'Target Name'
         default_value = 1
         description = 'short desc1'
         choice1 = FgdEntityPropertyChoice(1, 'first choice')
         choice2 = FgdEntityPropertyChoice(2, 'second choice')
         choice3 = FgdEntityPropertyChoice(3, 'third choice')
-        property = FgdEntityProperty(name, value_type, report, readonly, display_name,
-                                     default_value, description,
+        property = FgdEntityProperty(name, value_type, readonly, report,
+                                     display_name, default_value, description,
                                      [choice1, choice2, choice3])
         expected = 'targetname(choices) : "Target Name" : 1 : "short desc1" ='
         expected += '\n\t['

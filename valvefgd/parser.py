@@ -73,8 +73,8 @@ pp_description = Optional(pp_quoted.setResultsName('description'))
 
 
 pp_EntityProperty = pp_property_name + '(' + pp_property_value_type + ')' + \
-    Optional(pp_property_report) + \
     Optional(pp_property_readonly) + \
+    Optional(pp_property_report) + \
     Optional(':' + pp_property_display_name) + \
     Optional(':' + pp_property_default) + \
     Optional(':' + pp_description) + \

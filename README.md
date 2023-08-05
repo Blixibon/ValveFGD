@@ -4,10 +4,9 @@
 [![PyPI version fury.io](https://badge.fury.io/py/valvefgd.svg)](https://pypi.python.org/pypi/valvefgd/)
 [![GitHub Workflow Status (with event)](https://github.com/pySourceSDK/ValveFGD/actions/workflows/CI.yml/badge.svg)]()
 [![Test coverage](https://github.com/pySourceSDK/ValveFGD/blob/master/docs/source/coverage.svg "coverage")]()
-
 # ValveFGD
 
-ValveFGD is a Python library for parsing .fgd files for the Source Engine level editor Hammer. It provides entity schemas and other level editor configuration information.
+ValveFGD is a Python library designed to parse and edit .FGD files, which provides logic entity schemas for Valve's level editor as well as some configuration information.
 
 Full documentation: https://pysourcesdk.github.io/ValveFGD/
 

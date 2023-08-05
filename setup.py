@@ -13,13 +13,18 @@ setup(
     name='valvefgd',
     packages=['valvefgd'],
     version=VERSION,
-    description='A library to parse .fgd files (editor definition files for the Source engine).',
+    description='A library to parse .FGD files (editor schema definition files for the Source engine).',
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='gpl-3.0',
     author='Maxime Dupuis',
     author_email='mdupuis@hotmail.ca',
-    url='https://github.com/pySourceSDK/ValveFGD',
+    url='https://pysourcesdk.github.io/ValveFGD/',
+    project_urls={
+        'Documentation': 'https://pysourcesdk.github.io/ValveFGD/',
+        'Github': 'https://github.com/pySourceSDK/ValveFGD',
+    },
+
     keywords=['fgd', 'source', 'sourcesdk', 'hammer', 'valve'],
     install_requires=['pyparsing', 'future'],
     classifiers=[

@@ -28,7 +28,7 @@ pp_nums = Word(nums+'-.')
 pp_value = Word(nums+'-. ')  # maybe space delimited vertex
 
 pp_quoted = Combine(QuotedString('"') + Optional(OneOrMore(
-    Suppress('+') + QuotedString('"'))), adjacent=False)
+    Suppress('+') + Optional(QuotedString('"')))), adjacent=False)
 
 pp_quoted.setParseAction(protectUnescapedCharacters)
 pp_comment = Literal('//') + SkipTo(lineEnd)
@@ -84,11 +84,11 @@ pp_EntityProperty.setParseAction(
 
 
 pp_EntityInput = Literal('input') + pp_property_name + \
-    '(' + pp_property_value_type + ')' + ':' + pp_description
+    '(' + pp_property_value_type + ')' + Optional(':' + pp_description)
 pp_EntityInput.setParseAction(lambda toks: FgdEntityInput(**toks))
 
 pp_EntityOutput = Literal('output') + pp_property_name + \
-    '(' + pp_property_value_type + ')' + ':' + pp_description
+    '(' + pp_property_value_type + ')' + Optional(':' + pp_description)
 pp_EntityOutput.setParseAction(lambda toks: FgdEntityOutput(**toks))
 
 pp_properties = Suppress(pp_comment) | \
